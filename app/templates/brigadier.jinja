@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+    <title>{{ title }}</title>
+    {% else %}
+    <title>C.america</title>
+    {% endif %}
+</head>
+<body>
+    <h1>C.america</h1>
+    
+    <h3>Sergeants</h3>
+    <p>{{ sergeants[0] }} {{ sergeants[1] }}</p>
+    <h3>Soldiers</h3>
+    {% for soldier in soldiers %}
+    <p>{{ soldier }}</p>
+    {% endfor %}
+</body>
+</html>
