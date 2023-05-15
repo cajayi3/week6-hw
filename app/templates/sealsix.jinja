@@ -1,0 +1,27 @@
+{% extends "lieutenant.jinja" %}
+
+{% block content  %}
+<form action="" method="post">
+ <h2>Sealsix</h2>
+ {{ sculpture.hidden_tag() }}
+ <p>
+    {{ sculpture.username.label }}<br>
+    {{ sculpture.username(size=32) }}
+ </p>
+ <p>
+    {{ sculpture.email.label }}<br>
+    {{ sculpture.email(size=32) }}
+    {% for error in sculpture.email.errors %}
+      <span class="err-msg">{{ error }}</span>
+    {% endfor %}
+ </p>
+ <p>
+    {{ sculpture.password.label }}<br>
+    {{ sculpture.password(size=32) }}
+    {% for error in sculpture.password.errors %}
+      <span class="err-msg">{{ error }}</span>
+    {% endfor %}
+ </p>
+ <p>{{ sculpture.submit() }}</p>
+</form>
+{% endblock  %}

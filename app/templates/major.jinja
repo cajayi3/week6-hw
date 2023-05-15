@@ -1,0 +1,19 @@
+{% block content  %}
+ <h2>Major</h2>
+ <form action="" method="post">
+ <h2>Sealsix</h2>
+ {{ structure.hidden_tag() }}
+ <p>
+    {{ structure.username.label }}<br>
+    {{ structure.username(size=32) }}
+ </p>
+ <p>
+    {{ structure.password.label }}<br>
+    {{ structure.password(size=32) }}
+    {% for error in structure.password.errors %}
+      <span class="err-msg">{{ error }}</span>
+    {% endfor %}
+ </p>
+ <p>{{ structure.submit() }}</p>
+</form>
+{% endblock  %}
