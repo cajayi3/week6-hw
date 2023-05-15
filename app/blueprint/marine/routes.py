@@ -1,6 +1,7 @@
 from flask import render_template, flash, redirect, url_for
-from flask_login import login_user
+from flask_login import login_user, logout_user, login_required
 from app.structure import User
+from flask_login import current_user
 
 from . import bp
 from app.structure import SealsixStructure, MajorStructure
@@ -13,7 +14,7 @@ def major():
         if user and user.check_password(sculpture.password.data):
             flash(f'{sculpture.username.data} signed in','success')
             login_user(user)
-            return redirect(url_for('main.home'))
+            return redirect(url_for('ranger.home'))
         else:
             flash(f'{sculpture.username.data} doesn\'t exist or incorrect password','warning')
      return render_template('Major.jinja', sculpture=sculpture)

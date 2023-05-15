@@ -19,6 +19,17 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('marine.sealsix') }}">Sealsix</a>
         </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('copy.user_page', username=current_user.username) }}">My Page</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('copy.post') }}">Post</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('marine_logout') }}">Logout</a>
+        </li>
+        {% endif %}
       </ul>
     </div>
   </div>

@@ -16,3 +16,7 @@ class MajorStructure(FlaskForm):
 class PostStructure(FlaskForm):
     body = StringField('body', validators=[DataRequired()])
     submit = SubmitField('Publish')
+
+class OverSearchStructure(FlaskForm):
+    user = StringField('user', validators=[DataRequired()])
+    submit = SubmitField('Search')

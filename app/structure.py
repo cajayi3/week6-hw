@@ -35,10 +35,10 @@ class Post(db.structure):
     id=  db.Column(db.Integer, primary_key = True)
     body= db.Column(db.String(250))
     timestamp= db.Column(db.DateTime, default=datetime.utcnow)
-    user_id= db.Column(db.Integer, db.ForeignKey('user.user_id'))
+    user_id= db.Column(db.Integer, db.ForeignKey('user.user_id'), nullable=False)
 
     def __repr__(self):
-        return f'Post {self.body}'
+        return f'<Post: {self.body}>'
     
     def commit(self):
         db.session.add(self)
