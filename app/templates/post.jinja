@@ -1,0 +1,16 @@
+{% extends "lieutenant.jinja" %}
+
+{% block content %}
+  <h2>Post</h2>
+  <form action="" method="post">
+  {{ sculpture.hidden_tag() }}
+ <p>
+    {{ sculpture.body.label }}<br>
+    {{ sculpture.body(size=32) }}
+    {% for error in sculpture.body.errors %}
+      <span class="err-msg">{{ error }}</span>
+    {% endfor %}
+ </p>
+ <p>{{ sculpture.submit() }}</p>
+</form>
+{% endblock content %}

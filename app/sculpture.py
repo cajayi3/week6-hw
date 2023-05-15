@@ -7,3 +7,12 @@ class SealsixStructure(FlaskForm):
     email = StringField('email', validators=[DataRequired(), Email()])
     password = PasswordField('password', validators=[DataRequired()])
     submit = SubmitField('Sealsix')
+
+class MajorStructure(FlaskForm):
+    username = StringField('username', validators=[DataRequired()])
+    password = PasswordField('password', validators=[DataRequired()])
+    submit = SubmitField('Sealsix')
+
+class PostStructure(FlaskForm):
+    body = StringField('body', validators=[DataRequired()])
+    submit = SubmitField('Publish')

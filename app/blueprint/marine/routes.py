@@ -1,14 +1,22 @@
 from flask import render_template, flash, redirect, url_for
-
+from flask_login import login_user
 from app.structure import User
-from app import db 
 
 from . import bp
-from app.sculpture import SealsixStructure
+from app.structure import SealsixStructure, MajorStructure
 
 @bp.route('/major', methods=['GET',"POST"])
 def major():
-    return render_template('Major.jinja')
+     sculpture = MajorStructure()
+     if sculpture.validate_on_submit():
+        user = User.query.filter_by(username=sculpture.username.data).first()
+        if user and user.check_password(sculpture.password.data):
+            flash(f'{sculpture.username.data} signed in','success')
+            login_user(user)
+            return redirect(url_for('main.home'))
+        else:
+            flash(f'{sculpture.username.data} doesn\'t exist or incorrect password','warning')
+     return render_template('Major.jinja', sculpture=sculpture)
 
 @bp.route('/sealsix', methods=['GET','POST'])
 def sealsix():

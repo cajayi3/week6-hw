@@ -2,4 +2,20 @@
 
 {% block content %}
  <h2>Major</h2>
-{% endblock %}
+ <form action="" method="post">
+ <h2>Sealsix</h2>
+ {{ sculpture.hidden_tag() }}
+ <p>
+    {{ sculpture.ussername.label }}<br>
+    {{ sculpture.username(size=32) }}
+  </p>
+  <p>
+    {{ sculpture.password.label}}<br>
+    {{ sculpture.password.(size=32) }}
+    {% for error in sculpture.password.errors %}
+      <span class="err-msg">{{ error }}</span>
+    {% endfor %}
+    </p>
+    <p>{{ sculpture.submit() }}</p>
+   </form>
+   {% endblock %}
